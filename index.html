@@ -1,36 +1,279 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Slick Playground</title>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" type="text/css" href="./slick.css">
-  <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
-  <script src="index.js"></script>
-  <script src="./slick.min.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="./css/index.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+    <script src="./js/slick.min.js"></script>
+    <script src="./js/common.js"></script>
+
 </head>
 <body>
+    <header>
+        <div class="notice">
+            <a>[공지] 사회적 거리두기에 따른 현대 모터스튜디오 이용 수칙</a>
+            <a>[공지] 8월 10일 현대 모터스튜디오 서울 5층 전시장 관람 제한</a>
+            <div class="close_btn">
+                <span>닫기버튼</span>
+            </div>
+        </div>
+        <div>
+            <a href="https://motorstudio.hyundai.com/ln/login.do">LOGIN</a>
+            <a href="https://prd.kr-ccapi.hyundai.com/web/v1/user/agreement" target="_blank">JOIN</a>
+            <a class="btn_lang">LANGUAGE <img src="./img/icon3.jpg">
+                <ul class="language">
+                    <li>한국어</li>
+                    <li>English</li>
+                    <li>中文</li>
+                </ul>
+            </a>
+        </div>
+        <div class="header">
+            <a href="#">HYUNDAI<br>MOTORSTUDIO</a>
+            <nav>
+                <ul class="nav">
+                    <li>현대모터스튜디오
+                        <ul class="depth1">
+                            <li><a>고양</a><i>KOR</i></li>
+                            <li href="sub.html"><a>서울</a><i>KOR</i></li>
+                            <li><a>하남</a><i>KOR</i></li>
+                            <li><a>부산</a><i>KOR</i></li>
+                            <li><a>베이징</a><i>CHN</i></li>
+                            <li><a>모스크바</a><i>RUS</i></li>                                
+                        </ul>
+                    </li>
+                    <li>통합예약
+                        <ul class="depth1">
+                            <li><a>전시예약</a></li>
+                            <li><a>시승예약</a></li>
+                            <li><a>i-Lab예약</a></li>
+                        </ul>
+                    </li>
+                    <li>전시/시승
+                        <ul class="depth1">
+                            <li><a>체험전시</a></li>
+                            <li><a>차량전시</a></li>
+                            <li><a>아트전시</a></li>
+                            <li><a>시승안내</a></li>
+                        </ul>
+                    </li>
+                    <li>i-Lab
+                        <ul class="depth1">
+                            <li><a>i-Lab이란</a></li>
+                            <li><a>워크샵</a></li>
+                            <li><a>디자이너스 테이블</a></li>
+                            <li><a>키즈</a></li>
+                        </ul>
+                    </li>
+                    <li>소개
+                        <ul class="depth1">
+                            <li><a>브랜드</a></li>
+                            <li><a>공지사항</a></li>
+                            <li><a>이용안내</a></li>
+                            <li><a>이벤트</a></li>
+                            <li><a>뉴스룸</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <aside>
+        <div class="aside">
+            <div class="reserve_fix">
+                <img src="img/reserve_icon_00.png">
+                <span>예약</span>
+            </div>
+            <div class="reserve_action">
+                <div class="reserve_sub">            
+                    <img src="img/reserve_icon_04.png">
+                    <span>예약확인</span>
+                </div>
+                <div class="reserve_sub">
+                    <img src="img/reserve_icon_03.png">
+                    <span>i-Lab예약</span>
+                </div>    
+                <div class="reserve_sub">
+                    <img src="img/reserve_icon_02.png">
+                    <span>시승예약</span>
+                </div>
+                <div class="reserve_sub">
+                    <img src="img/reserve_icon_01.png">
+                    <span>전시예약</span>         
+                </a>
+            </div>
+            <figure class="topbtn active">
+                <span></span>
+                <span></span>
+                <a>TOP</a>
+            </figure>
+        </div>
+    </aside>
+    <main class="container">
+        <section>
+            <!-- 첫번째 섹션 왼쪽 이미지 -->
+            <article class="s1_left">
+                <div>
+                    <p>현대 모터스튜디오에서는</p>
+                    <p>지금</p>
+                </div>
+                <div>
+                    <img src="img/20210514141352155.jpg">
+                    <span></span>
+                    <div>
+                        <small>서울</small>
+                        <p>IONIQ LAB<br>
+                           체험전시</p>
+                    </div>
+                    <a>Learn more ></a>
+                </div>
+                <div>
+                    <img src="img/20210225143625330.jpg">
+                    <div>
+                        <small>베이징</small>
+                        <p>World on a Wire</p>
+                        <small>아트전시<br>
+                            2021.01.28 ~</small>    
+                    </div>
+                </div>
+                <div>
+                    <img src="img/20201220184005819.jpg">
+                </div>
+            </article>
+            
+            <!-- 첫번째 섹션 오른쪽이미지 -->
+            <article class="s1_right">
+                <div>
+                    현대 모터스튜디오를 보다 풍부하게 체험할 수 있는 다채로운 프로그램을 만나보세요. 시승, 교육, 문화 등 각 분야의 알찬 프로그램이 준비되어 있습니다.
+                </div>
+                <div>
+                    <img src="img/20210803170905747.jpg">
+                    <span></span>
+                    <div>
+                        <small>부산</small>
+                        <p>헬로로봇,<br>
+                           인간과 기계 그리고 디자인
+                        </p>
+                        <small>2021.08.03 ~ 2021.10.31</small>
+                    </div>
+                    <a>Learn more ></a>
+                </div>
+                <div>
+                    <div>
+                        <p>
+                            <span></span>
+                            <span></span>
+                        </p>
+                        <img src="img/20210215112332623.jpg">
+                    </div>
+                    <p>
+                        <a></a>
+                        <a></a>
+                    </p>
+                </div>
+            </article>
+        </section>
 
-  <section class="regular slider">
-    <!-- <div>
-      <img src="http://placehold.it/350x300?text=1">
-    </div>
-    <div>
-      <img src="http://placehold.it/350x300?text=2">
-    </div>
-    <div>
-      <img src="http://placehold.it/350x300?text=3">
-    </div>
-    <div>
-      <img src="http://placehold.it/350x300?text=4">
-    </div>
-    <div>
-      <img src="http://placehold.it/350x300?text=5">
-    </div>
-    <div>
-      <img src="http://placehold.it/350x300?text=6">
-    </div> -->
-  </section>
+        <section>
+            <!-- 두번째 섹션 왼쪽 이미지 -->
+            <article class="s2_left">
+                <div>
+                    <img src="img/20201218152135658.jpg">
+                    <div>
+                        <small>고양/서울</small>
+                        <p>GV70<br>
+                           신차전시</p>
+                        <small>2020.12.17 ~</small>
+                    </div>
+                </div>
+                <div>
+                    <img src="img/20201218154830106.jpg">
+                    <div>
+                        <small>고양</small>
+                        <p>Future<br>
+                           Mobility<br>
+                           체험전시
+                        </p>
+                        <small>2020.11.30 ~</small>
+                    </div>
+                </div>
+            </article>
+            <!-- 두번째 섹션 오른쪽이미지 -->
+            <article class="s2_right">
+                <div>
+                    <img src="img/20201218155037113.jpg">
+                    <div>
+                        <small>고양/서울/하남</small>
+                        <p>안전하게 즐기는<br>
+                           비대면 일반시승</p>
+                        <small>2020.11.30 ~</small>
+                    </div>
+                </div>
+                <div class="news">
+                    <h3>News&Info</h3>
+                    <p>[공지]사회적 거리두기에 따른 현대 모터스튜디오 이용 수칙</p>
+                    <p>[공지]8월10일 현대 모터스튜디오 서울 5층 전시장 관람 제한</p>
+                </div>
+                <div>
+                    <div>
+                        <small>모스크바</small>
+                        <p>전시편의시설<br>
+                           리뉴얼 오픈</p>
+                    </div>
+                    <a>알아보기</a>
+                </div>
+            </article>
+        </section>
 
+        <section class="s3">
+            <div class="s3_top">
+                <h2>사람을 움직이는 수단에서<br>
+                    마음을 움직이는 공간으로</h2>
+                <p>이동 수단을 넘어 일상의 행복이 되는 공간, 더 나은 라이프스타일을 고민하는 실험 공간, 현대 모터스튜디오가 자동차에 대한 새로운 경험을 선사합니다.</p>
+            </div>
+            <!------------ 세번째 섹션 슬라이드 ----------->
+            <div class="s3_main">
+                <article class="regular slider">
+                <!-- 
+                    <div>
+                        <img src="img/img_strg_01.jpg">
+                        <h3>현대 모터스튜디오 고양</h3>
+                        <P>국내 최대의 체험형 자동차 테마파크로 자동차의 탄생 과정과 기능을 친근하고 즐겁게 체험할 수 있는 공간입니다.</P>
+                    </div>
+                    <div>
+                        <img src="img/img_strg_02.jpg">
+                        <h3>현대 모터스튜디오 서울</h3>
+                        <P>현대자동차의 새로운 실험실인 이곳, 자동차가 건네는 노라운 이야기에 귀 기울여 보세요.</P>
+                    </div>
+                    <div>
+                        <img src="img/img_strg_03.jpg">
+                        <h3>현대 모터스튜디오 하남</h3>
+                        <P>무한 가능성과 혁신적 시도가 가득한 이 곳에서 미래의 라이프스타일을 경험하실 수 있습니다.</P>
+                    </div>
+                    <div>
+                        <img src="img/img_strg_busan.jpg">
+                        <h3>현대 모터스튜디오 부산</h3>
+                        <P>Design to live by<br>평범한 일상을 풍요롭게 하는 디자인 체험공간</P>
+                    </div>
+                    <div>
+                        <img src="img/img_strg_04.jpg">
+                        <h3>현대 모터스튜디오 베이징</h3>
+                        <P>창의적인 생각과 예술을 통해 고객과 소통합니다.</P>
+                    </div> 
+                -->
+                </article>
+                <!-- 
+                    <span><img src="img/arrow_idxslide_prev.png"></span>
+                    <span><img src="img/arrow_idxslide_next.png"></span>
+                -->
 
+            </div>
+        </section>
+    </main>
+    <script src="./js/index.js"></script>
+    <footer></footer>
 </body>
 </html>
