@@ -16,11 +16,11 @@ $subColor : #999;
 }
 /***************************** 본문 전체 ******************************/
 .container{
-    width:1124px;
-    margin:0 auto;
     margin-top: 230px;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
     section{
+        width:1124px;
+        margin:0 auto;
         margin-top: 24px;
         display: flex;
         justify-content:space-between;
@@ -158,20 +158,20 @@ header{
 
 .header{
     width: 1120px;
-    margin:0 auto;
+    margin: 0 auto;
     @include flex($a:flex-start);
     margin-bottom: 50px;
     background-color: #fff;
-    > a{
+    >a{
         font-size: 2.6rem;
         font-weight: bold;
         line-height: 0.8;
     } 
     nav{                
-        .nav{
+        .mainnav{
             @include flex();
             >li{            
-                margin-left: 40px;
+                margin-left: 50px;
                 font-size:1.2rem;
                 font-weight: bold;
                 position: relative;
@@ -179,7 +179,6 @@ header{
                         position: absolute;
                         left: 0; top:30px;
                         width: 100%;
-
                         display: none;
                         li{ 
                         min-width: 80px;
@@ -204,9 +203,11 @@ header{
                             padding-right: 10px;
                         }
                         li:hover a{
+                            cursor: pointer;
                             color:#29cb7e;
                         }
                         li:hover i{
+                            cursor: pointer;
                             display: block;
                         }
                     }
@@ -239,28 +240,110 @@ header.active::after{
     background-color: #fff;
     width: 100%; height: 350px;
     box-shadow: 2px 3px 10px rgba(0, 0, 0 , 0.1);
-    animation: mainnav 0.5s forwards;
+    animation: ani-mainnav 0.5s forwards;
 }
-@keyframes mainnav{
+@keyframes ani-mainnav{
     0%{height: 0;}
     100%{height: 350px;}
 }
 
 /***************************** 사이드// 예약 *******************************/
+.aside.stop{
+    position: relative;
+    align-items: flex-end;
+    right: 5%; bottom: 10vh;
+}
 .aside{
     position: fixed;
-    right:5%; bottom:15vh;
+    right: 5%; bottom: 10vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     z-index: 5000;
-    span{
-        font-size: 0.7rem;
+    article{    
+        position: relative;
+        left:0; bottom: 0px;
+        width:100px; height:100px;
+        .reserve_fix, .sub-reserve{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width:100px; height:100px;
+            border-radius:50%;
+            cursor: pointer;
+            span{
+                font-size: 0.7rem;
+            }
+        }     
+        div:nth-of-type(1){
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        div:nth-of-type(2){
+            position:absolute;
+            left:0;  bottom:105px;
+            animation: reserve1 1s forwards;
+        }
+        @keyframes reserve1{
+            0%{bottom:0;}
+        }
+        
+        div:nth-of-type(3){
+            position:absolute;
+            left:0; bottom:210px;
+            animation: reserve2 1s forwards;
+        }
+        @keyframes reserve2{
+            0%{bottom:0;}
+        }
+        div:nth-of-type(4){
+            position:absolute;
+            left:0; bottom:315px;
+            animation: reserve3 1s forwards;
+        }
+        @keyframes reserve3{
+            0%{bottom:0;}
+        }
+        div:nth-of-type(5){
+            position:absolute;
+            left:0; bottom:420px;
+            animation: reserve4 1s forwards;
+        }
+        @keyframes reserve4{
+            0%{bottom:0;}
+        }
+        >div.active{
+            position:absolute;
+            animation: reserveoff 1s forwards;
+            z-index: -1;
+        }
+        @keyframes reserveoff{
+            100%{left:0; bottom: 0px;}
+        }
     }
 }
+.reserve_fix{
+    background-color: #ffd200;
+}
+.sub-reserve{
+    position: absolute;
+    right:0; bottom:0;
+    background-color: #f2efea;
+    z-index: -1;
+}
+.sub-reserve:hover{
+    transition:0.5s;
+    background-color: #ffd200;
+}
 .topbtn{
+    padding-top:15px;
     transition:1s;
-    opacity: 0;
+    opacity: 0; 
     z-index: 5000;
-    position: relative;
-    left:37px; top:40px;
     >a{
         position:relative;
     }
@@ -271,7 +354,7 @@ header.active::after{
         background-color: #000;
         transform: rotate(45deg);
         position:absolute;
-        right: 0; top: -5px;
+        right: 3px; top: -5px;
     }
     >a::after{
         content:'';
@@ -280,7 +363,7 @@ header.active::after{
         background-color: #000;
         transform: rotate(-45deg);
         position:absolute;
-        right: 8px; top: -5px;
+        right: 11px; top: -5px;
     }
 }
 .topbtn.active{  
@@ -288,81 +371,6 @@ header.active::after{
 }
 .topbtn.active:hover{
     cursor: pointer;
-}
-.reserve_fix{
-    position: relative;
-    left:0; bottom:0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width:100px; height:100px;
-    background-color: #ffd200;
-    border-radius:50%;
-    cursor: pointer;
-}
-.reserve_action{
-    position: relative;
-    left:0; bottom:20px;
-}
-.reserve_sub{
-    position: absolute;
-    right:0; bottom:0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width:100px; height:100px;
-    background-color: #f2efea;
-    border-radius:50%;
-    z-index: -1;
-}
-.reserve_sub:hover{
-    transition:0.5s;
-    background-color: #ffd200;
-    cursor: pointer;
-}
-.reserve_sub:nth-child(1){
-    position:absolute;
-    left:0; bottom:110px;
-    animation: reserve1 1s forwards;
-}
-@keyframes reserve1{
-    0%{bottom:0;}
-}
-
-.reserve_sub:nth-child(2){
-    position:absolute;
-    left:0; bottom:220px;
-    animation: reserve2 1s forwards;
-}
-@keyframes reserve2{
-    0%{bottom:0;}
-}
-.reserve_sub:nth-child(3){
-    position:absolute;
-    left:0; bottom:330px;
-    animation: reserve3 1s forwards;
-}
-@keyframes reserve3{
-    0%{bottom:0;}
-}
-.reserve_sub:nth-child(4){
-    position:absolute;
-    left:0; bottom:440px;
-    animation: reserve4 1s forwards;
-}
-@keyframes reserve4{
-    0%{bottom:0;}
-}
-
-.reserve_sub.active{
-    position:absolute;
-    animation: reserveoff 1s forwards;
-    z-index: -1;
-}
-@keyframes reserveoff{
-    100%{left:0; bottom: 0;}
 }
 /***************************** 첫번째 섹션 왼쪽 *******************************/
 .s1_left{
@@ -888,3 +896,85 @@ header.active::after{
     width:100%; height:100%;  
 }
 
+//***************************** *******************************//
+@media(min-width:768px) and (max-width:1119px){
+    .navigation{
+        display: none;
+    }
+    .size-off{height:0;opacity: 0;display: none;}
+
+
+    .header{
+        width: 100%;
+        margin-bottom: 0;
+        padding: 30px;
+        align-items: center;
+        >a{
+            font-size: 2.6rem;
+            font-weight: bold;
+            line-height: 0.8;
+        } 
+    }
+    .btn-toggle{
+        display: block;
+        width:30px; height:25px;
+        position:relative;
+        span{
+            width:100%; height:2px;
+            background-color: #000;
+        }
+        span:nth-of-type(1){
+            position:absolute;
+            left:0; top:0;
+        }
+        span:nth-of-type(2){
+            position:absolute;
+            left:0; top: 45%;
+        }
+        span:nth-of-type(3){
+            position:absolute;
+            left:0; bottom:0;
+        }   
+    }
+    .btn-toggle.active{
+        span{
+            transition:.5s;
+            width:100%; height:4px;
+            background-color: #000;
+        }
+        span:nth-of-type(1){
+            position:absolute;
+            left:0; top:0;
+            transition:.5s;
+            transform:rotate(45deg);
+        }
+        span:nth-of-type(2){
+            transition: .5s;
+            opacity: 0;
+        }
+        span:nth-of-type(3){
+            position:absolute;
+            left:0; top:0;
+            transition:.5s;
+            transform:rotate(-45deg);
+        }
+    }
+
+    .navtoggle{
+        display:block;
+        width:100%; height: 100%;
+        background-color: rgba(0, 0, 0 , 0.2);
+        >ul{
+            width:40%; height:100%;
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}
+
+@media(max-width:767px){
+    .size-off{
+        display: none;
+    }
+}

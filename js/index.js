@@ -22,7 +22,7 @@
         })
 // ---------- 네비에 마우스오버 ---------- 하단메뉴 --------------------------
         const depth= document.querySelectorAll('.depth1');
-        const navli= document.querySelector('.nav');
+        const navli= document.querySelector('.mainnav');
         const navBack = document.querySelector('header');
         const navhead = document.querySelector('.header')
 
@@ -40,7 +40,7 @@
         
 //************************예약버튼*************************//
         const reserveFix = document.querySelector('.reserve_fix')
-        const reserveSub = document.querySelectorAll('.reserve_sub')
+        const reserveSub = document.querySelectorAll('.sub-reserve')
 
 
         reserveFix.addEventListener('click',function(){
@@ -102,3 +102,30 @@ function slickFun(){
         autoplay:false
     });
 }
+
+const footHead = document.querySelector('footer').offsetTop;
+const sideStop = document.querySelector('.aside');
+const mainlength = document.querySelector('main').offsetHeight;
+
+console.log(mainlength)
+window.addEventListener('scroll',function(){
+
+    if(mainlength < window.scrollY){
+        sideStop.classList.add('stop');
+    }else{
+        sideStop.classList.remove('stop');
+    };
+});
+
+
+
+
+//////////////////화면사이즈 줄면 aside 자동으로 접히게: active 들어가게 하기 ///////////////////
+
+const toggleBtn = document.querySelector('.btn-toggle');
+const navToggle = document.querySelector('.navigation')
+
+toggleBtn.addEventListener('click',function(){
+    toggleBtn.classList.toggle('active');
+    navToggle.classList.toggle('navtoggle')
+})
