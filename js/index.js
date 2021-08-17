@@ -20,7 +20,7 @@
             langIcon.style = `transform:rotate(0deg);`
             }
         })
-// ---------- 네비에 마우스오버 ---------- 하단메뉴 --------------------------
+// ---------- 네비에 마우스오버 ---------- 하단메뉴나오게 --------------------------
         const depth= document.querySelectorAll('.depth1');
         const navli= document.querySelector('.mainnav');
         const navBack = document.querySelector('header');
@@ -37,17 +37,66 @@
             })
 
         }
-        
-//************************예약버튼*************************//
+
+//******************** 슬라이더 이미지 가져오기 *************************//
+
+fetch("./js/data.json")
+.then(res => res.json())
+.then(data => callback(data));
+
+function callback(data){
+    let tagList ='';
+
+    data.photo.forEach(function(v,k){
+        // console.log(v.src);
+        // console.log( Object.keys(v));
+        tagList += `<div><img src="${v.src}">
+            <h3>${v.title}</h3>
+            <P>${v.exp}</p>
+            </div>`
+    });
+    $(".regular").html(tagList);
+
+    slickFun();
+}
+
+function slickFun(){
+    $(".regular").slick({
+    arrows:true,//false 좌우버튼이 없어짐
+    dots: false,//인디게이터가 있음 false없음 
+    infinite: false,
+    slidesToShow: 3, // 몇장을 한번에 보여주는지.
+    slidesToScroll: 1, // 1= 1장씩 움진인다 2= 2장씩 움직인다. 
+    autoplay:false
+    });
+}
+    
+//************************예약버튼********************************************//
         const reserveFix = document.querySelector('.reserve_fix')
         const reserveSub = document.querySelectorAll('.sub-reserve')
 
+        for(let i=0; i<reserveSub.length; i++){
+            window.addEventListener('resize', function(e){
 
-        reserveFix.addEventListener('click',function(){
-            for(let i=0; i<reserveSub.length; i++)
-            reserveSub[i].classList.toggle('active')
-        })
+                if(window.innerWidth >= 1120) {
+                    reserveSub[i].classList.remove('active');
+                }else if(window.innerWidth < 1120) {
+                    reserveSub[i].classList.add('active');
+                }
 
+            });
+            reserveFix.addEventListener('click',function(){
+                reserveSub[i].classList.toggle('active')
+            })
+        }
+
+
+//////////////////화면사이즈 줄면 aside 자동으로 접히게: active 들어가게 하기 ///////////////////
+
+
+
+
+/**********************************스크롤 탑버튼************************************/ 
 //-------------- 스크롤 탑버튼 -------------------------------------------------
         const elTop = document.querySelector('.topbtn');
                 
@@ -69,63 +118,32 @@
                 behavior:"smooth"
             });
         })
+//-------------- top버튼 멈춤 -------------------------------------------------
+        const footerTop = document.querySelector('footer').offsetTop;
+        const sideStop = document.querySelector('.aside');
+        const mainH= document.querySelector('main').offsetHeight;
 
-//******************** 슬라이더 이미지 가져오기 *************************//
-
-fetch("./js/data.json")
-        .then(res => res.json())
-        .then(data => callback(data));
-
-        function callback(data){
-            let tagList ='';
-
-            data.photo.forEach(function(v,k){
-                // console.log(v.src);
-                // console.log( Object.keys(v));
-                tagList += `<div><img src="${v.src}">
-                    <h3>${v.title}</h3>
-                    <P>${v.exp}</p>
-                    </div>`
-            });
-            $(".regular").html(tagList);
-
-            slickFun();
-        }
-
-function slickFun(){
-    $(".regular").slick({
-        arrows:true,//false 좌우버튼이 없어짐
-        dots: false,//인디게이터가 있음 false없음 
-        infinite: false,
-        slidesToShow: 3, // 몇장을 한번에 보여주는지.
-        slidesToScroll: 1, // 1= 1장씩 움진인다 2= 2장씩 움직인다. 
-        autoplay:false
-    });
-}
-
-const footHead = document.querySelector('footer').offsetTop;
-const sideStop = document.querySelector('.aside');
-const mainlength = document.querySelector('main').offsetHeight;
-
-console.log(mainlength)
-window.addEventListener('scroll',function(){
-
-    if(mainlength < window.scrollY){
-        sideStop.classList.add('stop');
-    }else{
-        sideStop.classList.remove('stop');
-    };
-});
+        window.addEventListener('scroll',function(){
+            console.log(footerTop-innerHeight,scrollY)
+            if((footerTop-innerHeight)< window.scrollY){
+                sideStop.classList.add('stop');
+            }else if((footerTop-innerHeight) > window.scrollY){
+                sideStop.classList.remove('stop');
+            };
+        });
 
 
 
 
-//////////////////화면사이즈 줄면 aside 자동으로 접히게: active 들어가게 하기 ///////////////////
 
+//*************************** 헤더 토글버튼 ******************************//
 const toggleBtn = document.querySelector('.btn-toggle');
-const navToggle = document.querySelector('.navigation')
+const navToggle = document.querySelector('.navigation');
 
 toggleBtn.addEventListener('click',function(){
     toggleBtn.classList.toggle('active');
     navToggle.classList.toggle('navtoggle')
 })
+
+
+
