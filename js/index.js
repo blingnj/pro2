@@ -27,6 +27,7 @@
         const navBack = document.querySelector('header');
         const navhead = document.querySelector('.header')
         const navheadaft = document.querySelector('header::after')
+        const direction = document.querySelectorAll('.direction')
 
 
         let idx=0;
@@ -34,9 +35,12 @@
             navli[i].addEventListener('click',function(){
                 if(depth[i].classList.contains('open')){
                     depth[i].classList.remove('open')
+                    direction[i].classList.remove('open')
                 }else{
                     depth[idx].classList.remove('open')
+                    direction[idx].classList.remove('open')
                     depth[i].classList.add('open')
+                    direction[i].classList.add('open')
                 }
                 idx=i;
             })
@@ -109,6 +113,25 @@ function slickFun(){
     ]
     });
 }
+//------------------------------ 스와이퍼 -----------------------------------------------------
+const swiper = new Swiper('.swiper-container', {
+
+    // Optional parameters
+    direction:'horizontal', //'horizontal' | 'vertical'
+    loop: true,
+    effect: 'slide', //	'slide' | 'fade' | 'cube' | 'coverflow' | 'flip
+
+    // 닷
+    pagination: {el: '.swiper-pagination',},
+    // 좌우버튼
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    }
+    // 스크롤바
+    //scrollbar: {el: '.swiper-scrollbar',draggable: true,},
+    //autoplay: {delay: 5000,   },
+  });
 //------------------ 사이즈 변경시 예약버튼 active -------------------------------
         const reserveFix = document.querySelector('.reserve_fix')
         const reserveSub = document.querySelectorAll('.sub-reserve')

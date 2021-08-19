@@ -188,6 +188,7 @@ footer .footer .site .family_site ul {
   bottom: 30px;
   padding: 15px;
   display: none;
+  z-index: 5001;
 }
 
 footer .footer .site .family_site ul li {

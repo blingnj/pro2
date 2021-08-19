@@ -584,9 +584,32 @@ aside{
         opacity:1;
         transform: translateX( 0px);
     }
-
-    >div:nth-child(3){
+    .swiper-container {
+        margin:0;
+        width:70%;
+        height: auto;
+        position:relative;
+        margin-bottom: 24px;
+        img{width:100%;}
     }
+    .swiper-pagination{
+        position:absolute;
+        left:0; top:10px;
+    }
+    .swiper-pagination-bullet-active{
+        background-color:#fff;
+    }
+    .swiper-button-prev,.swiper-button-next{
+        color:#fff;
+        top: 90%;
+    }
+    .swiper-button-prev{
+        right:50px; left: auto;
+    }
+    .swiper-button-next{
+        right:10px;  left: auto;
+    }
+
 }
 
 
@@ -1040,12 +1063,27 @@ aside{
                     margin:20px 0;
                     font-size:1.25rem;
                     font-weight: normal;
-                        >span{
-                            width:10px; height:10px;
-                            border-color: #000;
-                            border-style: solid;
-                            border-width: 0 2px 2px 0;
-                            transform: rotate(45deg);
+                        >a{
+                            width:100%;
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: flex-start;
+                            >span{}
+                            .direction{
+                                width:10px; height:10px;
+                                border-color:#999;
+                                border-style: solid;
+                                border-width: 0 2px 2px 0;
+                                transform: rotateZ(45deg);
+                                transition:0.3s;
+                            }
+                            .direction.open{
+                                width:10px; height:10px;
+                                border-color: #000;
+                                border-style: solid;
+                                border-width: 0 2px 2px 0;
+                                transform: rotateZ(-135deg);
+                            }
                         }
                         >.depth1{
                             position: unset;
@@ -1342,12 +1380,6 @@ aside{
             // opacity:1;
             // transform: translateX( 0px);
         }
-        >div:nth-child(3){
-            width:70%;
-            >div{
-                img{width:100%;}
-            }
-        }
     }
 /********************* PC  min768 max1119 ********두번째 섹션 왼쪽*******************************/
     .s2_left{    
@@ -1536,14 +1568,14 @@ aside{
         // z-index: 2;
         // font-size:0; border:0; background:none;
     }
-    .slick-prev{left:-20px;}
+    .slick-prev{left:-25px;}
     .slick-prev::after{
         // content:'';
         // display:block;
         // background: url(../img/arrow_idxslide_prev.png) ;
         // width: 23px; height: 42px;
     }
-    .slick-next{right:-20px;}
+    .slick-next{right:-25px;}
     .slick-next::after{
         // content:'';
         // display:block;
@@ -1572,11 +1604,10 @@ aside{
     //     background-color:#fff;
     // }
     /* 슬라이드 (이미지, 좌우버튼, 인디게이터) */
-    .s3_main {width:80%; margin:0 auto;}
+    .s3_main {width:90%; margin:0 auto;}
     .slider{
         width: 100%; height:auto;
     }
-
     .slick-list{
         width: 100%; height:100%;
     }
@@ -2038,35 +2069,17 @@ aside{
         // opacity:1;
         // transform: translateX( 0px);
     }
-    >div:nth-child(3){
-        width:70%;
-        >div{
-            img{width:100%;}
-        }
+    .swiper-button-prev,.swiper-button-next{
+        display: none;
     }
 }
 /****************** 모바일 max 767 ***********두번째 섹션 왼쪽*******************************/
 .s2_left{    
     width:100%;
-    // overflow: hidden;
-    // display:flex;
-    // flex-direction: column;
-    // justify-content: flex-start;
-    // align-items: flex-end;
-    >div{
-        // margin-bottom: 24px;
-    }
+    >div{}
     >div:nth-child(1){
-        // position: relative;
-        // width:100%; height:100%;
-        // overflow: hidden;
-        img{
-            // width:100%; height:100%;
-            // transition: 1s;
-        }
+        img{}
         div{
-            // position:absolute;
-            // left:0; bottom:0;
             padding:20px;
             small{
                 // transition: 1s;
@@ -2268,20 +2281,22 @@ aside{
     //     background-color:#fff;
     // }
     /* 슬라이드 (이미지, 좌우버튼, 인디게이터) */
+    .s3_main {width:100%; margin:0 auto;}
     .slider{
-    width: 500px; height:auto;
+        width: 100%; height:auto;
     }
+
     .slick-list{
-    // width:100%; height:100%;
+        width: 100%; height:100%;
     }
     .slick-list h3{
-    // margin: 20px 0 10px 0;
-    font-size: 0.9rem;
+        // margin: 20px 0 10px 0;
+        font-size: 0.9rem;
     }
     .slick-list p{
-    font-size: 0.8rem;
+        font-size: 0.8rem;
     }
     .slick-list img{
-    // width:100%; height:100%;  
-    }                                       
+        // width:100%; height:100%;  
+    }                                     
 }

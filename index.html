@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="./css/index.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" /> -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <!-- <script src="https://unpkg.com/swiper/swiper-bundle.js"></script> -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
     <script src="./js/slick.min.js"></script>
     <script src="./js/common.js"></script>
@@ -52,7 +57,10 @@
                         <a>JOIN</a>
                     </article>
                     <ul class="mainnav">
-                        <li>현대 모터스튜디오
+                        <li>
+                            <a>
+                                <span>현대 모터스튜디오</span><i class="direction"></i>
+                            </a>
                             <ul class="depth1">
                                 <li><a>고양<i>KOR</i></a></li>
                                 <li><a href="sub.html">서울<i>KOR</i></a></li>
@@ -62,14 +70,21 @@
                                 <li><a>모스크바<i>RUS</i></a></li>                                
                             </ul>
                         </li>
-                        <li>통합예약
+                        <li>
+                            <a>
+                                <span>통합예약</span><i class="direction"></i>
+                            </a>
                             <ul class="depth1">
                                 <li><a>전시예약</a></li>
                                 <li><a>시승예약</a></li>
                                 <li><a>i-Lab예약</a></li>
                             </ul>
                         </li>
-                        <li>전시/시승
+                        <li>
+                            <a>
+                                <span>전시/시승</span><i class="direction"></i>
+                            </a>
+                                
                             <ul class="depth1">
                                 <li><a>체험전시</a></li>
                                 <li><a>차량전시</a></li>
@@ -77,14 +92,20 @@
                                 <li><a>시승안내</a></li>
                             </ul>
                         </li>
-                        <li>i-Lab
+                        <li><a>
+                                <span>i-Lab</span><i class="direction"></i>
+                            </a>
                             <ul class="depth1">
                                 <li><a>i-Lab이란</a></li>
                                 <li><a>워크샵</a></li>
                                 <li><a>키즈</a></li>
                             </ul>
                         </li>
-                        <li>소개
+                        <li>
+                            <a>
+                                <span>소개</span><i class="direction"></i>
+                            </a>
+                                
                             <ul class="depth1">
                                 <li><a>브랜드</a></li>
                                 <li><a>공지사항</a></li>
@@ -155,19 +176,24 @@
                     </div>
                     <a>Learn more ></a>
                 </div>
-                <div>
-                    <div>
-                        <p>
-                            <span></span>
-                            <span></span>
-                        </p>
-                        <img src="img/20210215112332623.jpg">
+                <div class="swiper-container">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                      <!-- Slides -->
+                      <div class="swiper-slide"><img src="img/20210215112332623.jpg"></div>
+                      <div class="swiper-slide"><img src="img/20210215112629283.jpg"></div>
                     </div>
-                    <p>
-                        <a></a>
-                        <a></a>
-                    </p>
+                    <!-- 닷 -->
+                    <div class="swiper-pagination"></div>
+                  
+                    <!-- 좌우버튼 -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                  
+                    <!-- 스크롤바 -->
+                    <!-- <div class="swiper-scrollbar"></div> -->
                 </div>
+                <!-- Slider main container -->
             </article>
         </section>
 
