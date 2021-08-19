@@ -1,8 +1,8 @@
 //---------- 공지사항 엑스버튼 -------- 누르면 사라짐----------------------------
         const headClose = document.querySelector('.notice'),
-              closeBtn = document.querySelector('.close_btn');
+              xBtn = document.querySelector('.close_btn');
 
-        closeBtn.addEventListener('click',function(){
+        xBtn.addEventListener('click',function(){
             headClose.classList.add('active')
         })
 
@@ -22,21 +22,43 @@
         })
 // ---------- 네비에 마우스오버 ---------- 하단메뉴나오게 --------------------------
         const depth= document.querySelectorAll('.depth1');
-        const navli= document.querySelector('.mainnav');
+        const navul= document.querySelector('.mainnav');
+        const navli= document.querySelectorAll('.mainnav >li');
         const navBack = document.querySelector('header');
         const navhead = document.querySelector('.header')
+        const navheadaft = document.querySelector('header::after')
 
-        for(let k=0; k<depth.length; k++){ 
-            navli.addEventListener('mouseenter',function(){
-                depth[k].classList.add('active');
-                navBack.classList.add('active');
-            })
-            navhead.addEventListener('mouseleave',function(){
-                depth[k].classList.remove('active');
-                navBack.classList.remove('active');
-            })
 
+        let idx=0;
+        for(let i=0; i<navli.length; i++){
+            navli[i].addEventListener('click',function(){
+                if(depth[i].classList.contains('open')){
+                    depth[i].classList.remove('open')
+                }else{
+                    depth[idx].classList.remove('open')
+                    depth[i].classList.add('open')
+                }
+                idx=i;
+            })
         }
+
+        // if(window.matchMedia("(min-width:1120px)").matches){
+            
+        // }
+
+        function mouseon(){
+            for(let k=0; k<depth.length; k++){ 
+                navul.addEventListener('mouseenter',function(){
+                    depth[k].classList.add('active');
+                    navBack.classList.add('active');
+                })
+                navhead.addEventListener('mouseleave',function(){
+                    depth[k].classList.remove('active');
+                    navBack.classList.remove('active');
+                })
+            }
+        }mouseon();
+        
 
 //******************** 슬라이더 이미지 가져오기 *************************//
 
@@ -64,40 +86,44 @@ function slickFun(){
     $(".regular").slick({
     arrows:true,//false 좌우버튼이 없어짐
     dots: false,//인디게이터가 있음 false없음 
-    infinite: false,
+    infinite: true,
     slidesToShow: 3, // 몇장을 한번에 보여주는지.
     slidesToScroll: 1, // 1= 1장씩 움진인다 2= 2장씩 움직인다. 
-    autoplay:false
+    autoplay:false,
+    
+    responsive: [
+        {
+          breakpoint: 1119,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 1,
+          }
+        },
+        {
+            breakpoint: 767,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+            }
+        }
+    ]
     });
 }
-    
-//************************예약버튼********************************************//
+//------------------ 사이즈 변경시 예약버튼 active -------------------------------
         const reserveFix = document.querySelector('.reserve_fix')
         const reserveSub = document.querySelectorAll('.sub-reserve')
 
         for(let i=0; i<reserveSub.length; i++){
+
             window.addEventListener('resize', function(e){
-
-                if(window.innerWidth >= 1120) {
-                    reserveSub[i].classList.remove('active');
-                }else if(window.innerWidth < 1120) {
-                    reserveSub[i].classList.add('active');
-                }
-
+                sizeChange();
             });
+
             reserveFix.addEventListener('click',function(){
                 reserveSub[i].classList.toggle('active')
             })
         }
-
-
-//////////////////화면사이즈 줄면 aside 자동으로 접히게: active 들어가게 하기 ///////////////////
-
-
-
-
-/**********************************스크롤 탑버튼************************************/ 
-//-------------- 스크롤 탑버튼 -------------------------------------------------
+//---------------- 스크롤 탑버튼 -------------------------------------------------
         const elTop = document.querySelector('.topbtn');
                 
         window.addEventListener('scroll',function(){
@@ -118,32 +144,35 @@ function slickFun(){
                 behavior:"smooth"
             });
         })
-//-------------- top버튼 멈춤 -------------------------------------------------
-        const footerTop = document.querySelector('footer').offsetTop;
-        const sideStop = document.querySelector('.aside');
-        const mainH= document.querySelector('main').offsetHeight;
-
-        window.addEventListener('scroll',function(){
-            console.log(footerTop-innerHeight,scrollY)
-            if((footerTop-innerHeight)< window.scrollY){
-                sideStop.classList.add('stop');
-            }else if((footerTop-innerHeight) > window.scrollY){
-                sideStop.classList.remove('stop');
-            };
-        });
-
-
-
-
-
 //*************************** 헤더 토글버튼 ******************************//
-const toggleBtn = document.querySelector('.btn-toggle');
+const openBtn = document.querySelector('.menu-open');
+const closeBtn = document.querySelector('.menu-close');
 const navToggle = document.querySelector('.navigation');
+const actBody = document.querySelector('body')
 
-toggleBtn.addEventListener('click',function(){
-    toggleBtn.classList.toggle('active');
-    navToggle.classList.toggle('navtoggle')
+openBtn.addEventListener('click',function(){
+    navToggle.classList.add('active')
+    actBody.classList.add('active')
 })
+closeBtn.addEventListener('click',function(){
+    navToggle.classList.remove('active')
+    actBody.classList.remove('active')
+})
+//******************** function *******************************************//
+function sizeChange(){
+    for(let i=0; i<reserveSub.length; i++){
 
-
-
+        if(window.innerWidth < 1120 ) {
+            navul.classList.add('open')
+            if( !reserveSub[i].classList.contains('active')){
+                reserveSub[i].classList.add('active');
+            }
+        }else{
+            navul.classList.remove('open')
+            if( reserveSub[i].classList.contains('active')){
+                reserveSub[i].classList.remove('active');
+            }
+        }
+    }
+}
+sizeChange();
