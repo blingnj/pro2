@@ -36,6 +36,7 @@ header{
         display: flex;
         justify-content: flex-start;
         align-items: center;
+        letter-spacing: -0.08rem;
         >a{
             width:17px; height:17px;
             margin-right:20px;
@@ -45,7 +46,7 @@ header{
         >div{ 
             position: relative; z-index:4;
             font-size: 0.9rem;
-            padding-right: 57px;
+            padding-right: 60px;
             >ul{
                 position:absolute;
                 left:0; top:35px;
@@ -98,7 +99,7 @@ header{
         position:fixed; z-index:3;
         left:0; top:0;
         width: 100%; height: 0px;
-        transition:.5s;
+        transition:.1s;
     }
     >div:nth-of-type(1):hover::after{
        height: 250px;
@@ -228,124 +229,7 @@ $subColor : #999;
     padding: 0 10px 5px 0;
 }
 
-/***************************** 사이드// 예약 *******************************/
-.aside{
-    position: fixed;
-    right:5%; bottom:15vh;
-    z-index: 5000;
-    span{
-        font-size: 0.7rem;
-    }
-}
-.topbtn{
-    transition:1s;
-    opacity: 0;
-    z-index: 5000;
-    position: relative;
-    left: 37px; top:40px;
-    >a{
-        position:relative;
-    }
-    >a::before{
-        content:'';
-        display: block;
-        width:13px; height: 2px;
-        background-color: #000;
-        transform: rotate(45deg);
-        position:absolute;
-        right: 0; top: -5px;
-    }
-    >a::after{
-        content:'';
-        display: block;
-        width:13px; height: 2px;
-        background-color: #000;
-        transform: rotate(-45deg);
-        position:absolute;
-        right: 8px; top: -5px;
-    }
-}
-.topbtn.active{  
-    opacity: 1;
-}
-.topbtn.active:hover{
-    cursor: pointer;
-}
-.reserve_fix{
-    position: relative;
-    left:0; bottom:0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width:100px; height:100px;
-    background-color: #ffd200;
-    border-radius:50%;
-    cursor: pointer;
-}
-.reserve_action{
-    position: relative;
-    left:0; bottom:20px;
-}
-.reserve_sub{
-    position: absolute;
-    right:0; bottom:0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width:100px; height:100px;
-    background-color: #f2efea;
-    border-radius:50%;
-    z-index: -1;
-}
-.reserve_sub:hover{
-    transition:0.5s;
-    background-color: #ffd200;
-    cursor: pointer;
-}
-.reserve_sub:nth-child(1){
-    position:absolute;
-    left:0; bottom:110px;
-    animation: reserve1 1s forwards;
-}
-@keyframes reserve1{
-    0%{bottom:0;}
-}
 
-.reserve_sub:nth-child(2){
-    position:absolute;
-    left:0; bottom:220px;
-    animation: reserve2 1s forwards;
-}
-@keyframes reserve2{
-    0%{bottom:0;}
-}
-.reserve_sub:nth-child(3){
-    position:absolute;
-    left:0; bottom:330px;
-    animation: reserve3 1s forwards;
-}
-@keyframes reserve3{
-    0%{bottom:0;}
-}
-.reserve_sub:nth-child(4){
-    position:absolute;
-    left:0; bottom:440px;
-    animation: reserve4 1s forwards;
-}
-@keyframes reserve4{
-    0%{bottom:0;}
-}
-
-.reserve_sub.active{
-    position:absolute;
-    animation: reserveoff 1s forwards;
-    z-index: -1;
-}
-@keyframes reserveoff{
-    100%{left:0; bottom: 0;}
-}
 
 //****************** 본문 *******************//
 .section_1{   
@@ -381,7 +265,7 @@ $subColor : #999;
 
 .section_2{
     width: 100%; height: 100vh;
-    position:relative;
+
     ul{
         width:1120px; height: 55px;
         margin: 0 auto;
@@ -472,6 +356,7 @@ $subColor : #999;
     }
  }
  .slick-center{
+     width:1120px;
     a{
         img{
             transition:1s;
@@ -626,4 +511,135 @@ $subColor : #999;
 }
 .slick-list img{
     width:100%; height:100%;
+}
+
+/***************************** 사이드// 예약 *******************************/
+aside{
+    position: sticky;
+    right: 0; bottom: 10%;
+    margin-right: 5%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;    
+    z-index: 5000;
+}
+// .aside.stop{
+//     position: relative;
+//     right: 5%; bottom: 10vh;
+//     transition:1s;
+
+//     align-items: flex-end;
+// }
+.aside{
+    position: relative;
+    left:0; bottom: 0px;
+    width:100px; height:100px;
+        .reserve_fix, .sub-reserve{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width:100px; height:100px;
+            border-radius:50%;
+            cursor: pointer;
+            span{
+                font-size: 0.7rem;
+            }
+        }     
+        div:nth-of-type(1){
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        div:nth-of-type(2){
+            position:absolute;
+            left:0;  bottom:105px;
+            animation: reserve1 1s forwards;
+        }
+        @keyframes reserve1{
+            0%{bottom:0;}
+        }
+        
+        div:nth-of-type(3){
+            position:absolute;
+            left:0; bottom:210px;
+            animation: reserve2 1s forwards;
+        }
+        @keyframes reserve2{
+            0%{bottom:0;}
+        }
+        div:nth-of-type(4){
+            position:absolute;
+            left:0; bottom:315px;
+            animation: reserve3 1s forwards;
+        }
+        @keyframes reserve3{
+            0%{bottom:0;}
+        }
+        div:nth-of-type(5){
+            position:absolute;
+            left:0; bottom:420px;
+            animation: reserve4 1s forwards;
+        }
+        @keyframes reserve4{
+            0%{bottom:0;}
+        }
+        >div.active{
+            position:absolute;
+            animation: reserveoff 1s forwards;
+            z-index: -1;
+        }
+        @keyframes reserveoff{
+            100%{left:0; bottom: 0px;}
+        }
+    article{}
+}
+.reserve_fix{
+    background-color: #ffd200;
+}
+.sub-reserve{
+    position: absolute;
+    right:0; bottom:0;
+    background-color: #f2efea;
+    z-index: -1;
+}
+.sub-reserve:hover{
+    transition:0.5s;
+    background-color: #ffd200;
+}
+.topbtn{
+    padding-top:15px;
+    transition:1s;
+    opacity: 0; 
+    z-index: 5000;
+    >a{
+        position:relative;
+    }
+    >a::before{
+        content:'';
+        display: block;
+        width:13px; height: 2px;
+        background-color: #000;
+        transform: rotate(45deg);
+        position:absolute;
+        right: 3px; top: -5px;
+    }
+    >a::after{
+        content:'';
+        display: block;
+        width:13px; height: 2px;
+        background-color: #000;
+        transform: rotate(-45deg);
+        position:absolute;
+        right: 11px; top: -5px;
+    }
+}
+.topbtn.active{  
+    opacity: 1;
+}
+.topbtn.active:hover{
+    cursor: pointer;
 }

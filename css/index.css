@@ -1008,6 +1008,7 @@ aside {
   height: auto;
   position: relative;
   margin-bottom: 24px;
+  overflow: hidden;
 }
 
 .s1_right .swiper-container img {
@@ -1565,6 +1566,8 @@ aside {
   .navigation.active > div {
     width: 40%;
     height: 100%;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
     background-color: #fff;
     padding: 20px 0;
   }
@@ -1593,6 +1596,7 @@ aside {
     font-size: 0.8rem;
     letter-spacing: 0.01rem;
     padding-right: 20px;
+    cursor: pointer;
   }
   .navigation.active > div > article > div > ul > li:nth-of-type(1)::after {
     content: '';
@@ -1662,12 +1666,13 @@ aside {
     font-size: 1.7rem;
     font-weight: bold;
     line-height: 1.3rem;
-    padding: 30px 0;
+    margin: 30px 0;
   }
   .navigation.active > div > article > a:nth-of-type(2), .navigation.active > div > article > a:nth-of-type(3) {
     font-size: 0.8rem;
     letter-spacing: 0.01rem;
     padding-right: 30px;
+    cursor: pointer;
   }
   .navigation.active > div > .mainnav {
     display: block;
@@ -1691,6 +1696,7 @@ aside {
     margin: 20px 0;
     font-size: 1.25rem;
     font-weight: normal;
+    cursor: pointer;
   }
   .navigation.active > div > .mainnav > li > a {
     width: 100%;
@@ -2049,6 +2055,7 @@ aside {
     top: 0;
     width: 100%;
     height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -2062,12 +2069,15 @@ aside {
     -webkit-box-align: end;
         -ms-flex-align: end;
             align-items: flex-end;
-    background-color: rgba(0, 0, 0, 0.8);
     z-index: 10000;
+    -webkit-animation: nav-action 1s backwards;
+            animation: nav-action 1s backwards;
   }
   .navigation.active > div {
     width: 85%;
     height: 100%;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
     background-color: #fff;
     padding: 20px 0;
   }
@@ -2096,6 +2106,7 @@ aside {
     font-size: 0.8rem;
     letter-spacing: 0.01rem;
     padding-right: 20px;
+    cursor: pointer;
   }
   .navigation.active > div > article > div > ul > li:nth-of-type(1)::after {
     content: '';
@@ -2111,6 +2122,8 @@ aside {
     width: 25px;
     height: 25px;
     margin: 0;
+    -webkit-animation: close-btn 0.1s 0.1s backwards;
+            animation: close-btn 0.1s 0.1s backwards;
   }
   .navigation.active > div > article > div .menu-close span {
     -webkit-transition: .5s;
@@ -2147,12 +2160,13 @@ aside {
     font-size: 1.7rem;
     font-weight: bold;
     line-height: 1.3rem;
-    padding: 30px 0;
+    margin: 30px 0;
   }
   .navigation.active > div > article > a:nth-of-type(2), .navigation.active > div > article > a:nth-of-type(3) {
     font-size: 0.8rem;
     letter-spacing: 0.01rem;
     padding-right: 30px;
+    cursor: pointer;
   }
   .navigation.active > div > .mainnav {
     display: block;
@@ -2176,15 +2190,39 @@ aside {
     margin: 20px 0;
     font-size: 1.25rem;
     font-weight: normal;
+    cursor: pointer;
   }
-  .navigation.active > div > .mainnav > li > span {
+  .navigation.active > div > .mainnav > li > a {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  .navigation.active > div > .mainnav > li > a .direction {
+    width: 10px;
+    height: 10px;
+    border-color: #999;
+    border-style: solid;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotateZ(45deg);
+            transform: rotateZ(45deg);
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+  }
+  .navigation.active > div > .mainnav > li > a .direction.open {
     width: 10px;
     height: 10px;
     border-color: #000;
     border-style: solid;
     border-width: 0 2px 2px 0;
-    -webkit-transform: rotate(45deg);
-            transform: rotate(45deg);
+    -webkit-transform: rotateZ(-135deg);
+            transform: rotateZ(-135deg);
   }
   .navigation.active > div > .mainnav > li > .depth1 {
     position: unset;
@@ -2248,6 +2286,42 @@ aside {
   }
   .navigation.active > div > .mainnav > li:hover ul {
     display: unset;
+  }
+  @-webkit-keyframes nav-action {
+    0% {
+      -webkit-transform: translateX(100%);
+              transform: translateX(100%);
+      opacity: 0;
+    }
+    5% {
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+      opacity: 1;
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+    100% {
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+  }
+  @keyframes nav-action {
+    0% {
+      -webkit-transform: translateX(100%);
+              transform: translateX(100%);
+      opacity: 0;
+    }
+    5% {
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+      opacity: 1;
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+    100% {
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+      background-color: rgba(0, 0, 0, 0.8);
+    }
   }
   header.active::after {
     display: none;
